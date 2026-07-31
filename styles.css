@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root { color-scheme: dark; --ink:#e6dfcf; --muted:#9e9686; --rust:#a85d39; --gold:#d2a56b; --black:#090807; }
+* { box-sizing:border-box; }
+html, body { margin:0; min-height:100%; }
+body { overflow-x:hidden; background:var(--black); color:var(--ink); font-family:'Space Mono', monospace; }
+button { font:inherit; }
+#firmament { position:fixed; inset:0; width:100%; height:100%; z-index:-3; background:radial-gradient(circle at 50% 45%, #252018 0, #0e0d0b 42%, #050504 100%); }
+.grain { position:fixed; inset:0; pointer-events:none; z-index:3; opacity:.12; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E"); mix-blend-mode:screen; }
+.site-shell { width:min(100% - 40px, 1180px); margin:auto; min-height:100vh; padding:6vh 0 4vh; display:grid; grid-template-columns:1fr minmax(280px, 430px) 1fr; align-items:center; gap:5vw; }
+.intro { align-self:start; padding-top:6vh; }
+.eyebrow { margin:0 0 1rem; color:var(--gold); font-size:.68rem; letter-spacing:.16em; line-height:1.5; }
+h1 { margin:0; font:600 clamp(4.2rem, 9vw, 8.5rem)/.78 'Barlow Condensed', sans-serif; letter-spacing:-.06em; text-transform:uppercase; }
+h1 em { color:var(--rust); font-style:normal; }
+.lead { max-width:230px; margin-top:2rem; color:var(--muted); font-size:.75rem; line-height:1.7; }
+.totem { position:relative; display:flex; flex-direction:column; gap:5px; perspective:800px; }
+.totem-spine { position:absolute; top:-40px; bottom:-40px; left:50%; width:5px; transform:translateX(-50%); background:linear-gradient(90deg, transparent, #76502f 45%, #d1a16a 50%, #2b1b11 60%, transparent); opacity:.75; box-shadow:0 0 24px #a85d3944; }
+.totem-node { position:relative; display:grid; grid-template-columns:40px 1fr; grid-template-rows:1fr 1fr; width:100%; min-height:80px; padding:15px 20px; border:1px solid #9c795230; border-left:4px solid var(--rust); color:var(--ink); text-align:left; cursor:pointer; background:linear-gradient(105deg, #27231d 0%, #12110e 58%, #080807 100%); box-shadow:inset 0 1px #e1c28b18, 0 12px 28px #00000055; transition:transform .28s ease, border-color .28s ease, filter .28s ease; }
+.totem-node::after { content:''; position:absolute; inset:5px; border:1px solid #d0a66b12; pointer-events:none; }
+.totem-node:hover, .totem-node:focus-visible { z-index:2; border-color:var(--gold); filter:brightness(1.25); transform:translateX(12px) rotateY(-4deg); outline:none; }
+.node-1 { transform:translateX(-14px) rotate(-1deg); } .node-2 { transform:translateX(8px) rotate(1deg); } .node-3 { transform:translateX(-5px) rotate(-.5deg); } .node-4 { transform:translateX(14px) rotate(1.2deg); } .node-5 { transform:translateX(-10px) rotate(-1deg); }
+.node-index { grid-row:1 / span 2; align-self:center; color:var(--gold); font-size:1.25rem; }
+.totem-node span:not(.node-index) { font:600 1.25rem/1 'Barlow Condensed', sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+.totem-node small { color:var(--muted); font-size:.58rem; letter-spacing:.06em; text-transform:uppercase; }
+.controls { align-self:end; padding-bottom:2vh; color:var(--muted); font-size:.62rem; }
+.controls p { line-height:1.7; max-width:160px; }
+.sound-toggle { display:flex; gap:9px; align-items:center; padding:0; border:0; color:var(--ink); background:none; cursor:pointer; font-size:.62rem; letter-spacing:.03em; }
+.sound-dot { width:8px; height:8px; border:1px solid var(--gold); border-radius:50%; }.sound-toggle[aria-pressed='true'] .sound-dot { background:var(--gold); box-shadow:0 0 12px var(--gold); }
+.manifesto-dialog { width:min(680px, calc(100% - 30px)); max-height:min(78vh, 720px); padding:clamp(25px, 5vw, 60px); border:1px solid #b98a554f; color:var(--ink); background:linear-gradient(135deg, #191611f2, #080807f7); box-shadow:0 30px 100px #000; }
+.manifesto-dialog::backdrop { background:#020202b8; backdrop-filter:blur(5px); }
+.manifesto-dialog h2 { max-width:570px; margin:0 0 2rem; color:var(--gold); font:600 clamp(2.2rem, 5vw, 4rem)/.9 'Barlow Condensed', sans-serif; text-transform:uppercase; }
+.dialog-copy { color:#d2ccbd; font-size:.78rem; line-height:1.9; }.dialog-copy p { margin:0 0 1.25rem; }
+.close-dialog { position:absolute; top:13px; right:17px; border:0; color:var(--gold); background:none; cursor:pointer; font-size:2rem; font-weight:300; }
+@media (max-width:800px) { .site-shell { display:flex; flex-direction:column; align-items:stretch; padding-top:8vh; gap:4vh; } .intro { padding-top:0; text-align:center; } .lead { margin:1.5rem auto 0; } .totem { width:min(100%, 430px); margin:auto; } .controls { display:flex; justify-content:space-between; align-items:end; padding-bottom:0; } h1 { font-size:clamp(4.6rem, 19vw, 7rem); } }

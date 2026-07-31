@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090807" />
+    <title>Manifiesto — Tótems oblicuos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="firmament" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <main class="site-shell">
+      <header class="intro">
+        <p class="eyebrow">MANIFIESTO / SISTEMA DE RESISTENCIA</p>
+        <h1>Tótems<br /><em>oblicuos</em></h1>
+        <p class="lead">Una máquina poética para devolver la mirada.</p>
+      </header>
+
+      <section class="totem" aria-label="Secciones del manifiesto">
+        <div class="totem-spine" aria-hidden="true"></div>
+        <button class="totem-node node-1" data-section="motivacion-1">
+          <span class="node-index">I</span><span>Motivación</span><small>El tótem nunca fue un objeto</small>
+        </button>
+        <button class="totem-node node-2" data-section="motivacion-2">
+          <span class="node-index">II</span><span>Motivación</span><small>La propagación del control</small>
+        </button>
+        <button class="totem-node node-3" data-section="motivacion-3">
+          <span class="node-index">III</span><span>Motivación</span><small>El retorno de la máquina anarca</small>
+        </button>
+        <button class="totem-node node-4" data-section="intencion">
+          <span class="node-index">IV</span><span>Intención</span><small>Construcción de tótems oblicuos</small>
+        </button>
+        <button class="totem-node node-5" data-section="deseo">
+          <span class="node-index">V</span><span>Deseo</span><small>Deserción tecnológica</small>
+        </button>
+      </section>
+
+      <footer class="controls">
+        <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="false">
+          <span class="sound-dot"></span><span id="sound-label">Activar ambiente</span>
+        </button>
+        <p>Observar es activar.</p>
+      </footer>
+    </main>
+
+    <dialog id="manifesto-dialog" class="manifesto-dialog">
+      <button class="close-dialog" type="button" aria-label="Cerrar">×</button>
+      <p id="dialog-kicker" class="eyebrow"></p>
+      <h2 id="dialog-title"></h2>
+      <div id="dialog-copy" class="dialog-copy"></div>
+    </dialog>
+
+    <audio id="ambient-audio" loop preload="auto" src="assets/audio/electricity-001.mp3"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
